@@ -475,7 +475,7 @@ function log(id : string, message : string) : void {
     console.log(`LangUtil: ${id}: ${message}`);
 }
 
-export default {
+export {
     setStoredConfigObject,
     translate,
     addModifier,
