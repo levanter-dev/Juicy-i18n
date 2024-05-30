@@ -1,0 +1,23 @@
+{
+  "name": "juicy-i18n",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup"
+  },
+  "keywords": [
+    "i18n",
+    "localization",
+    "locale",
+    "language"
+  ],
+  "author": "Levanter-Dev",
+  "license": "MIT",
+  "description": "Dynamic and rich i18n helper that lets you define what and how you want to localize your strings.",
+  "devDependencies": {
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.5"
+  }
+}
