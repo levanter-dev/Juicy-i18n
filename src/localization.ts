@@ -188,7 +188,7 @@ function getStoredConfig() : Record<string, any> {
 
 function getTranslationByKey(search_iso : string | null, search_key : string | null, get_fallback : boolean = true) : string | null {
     if(!search_key) {
-        log("getTranslationByKey", "search_iso || search_key are provided null.");
+        log("getTranslationByKey", "search_key are provided null.");
         return null;
     }
 
@@ -471,13 +471,22 @@ function translate(query_input : any) : string | object | null {
     });
 }
 
+
+let can_log : boolean = false;
 function log(id : string, message : string) : void {
-    console.log(`LangUtil: ${id}: ${message}`);
+    if(can_log) {
+        console.log(`LangUtil: ${id}: ${message}`);
+    }
+}
+
+function setCanLog(state: boolean) : void {
+    can_log = state;
 }
 
 export {
     setStoredConfigObject,
     translate,
     addModifier,
-    getModifiersNames
+    getModifiersNames,
+    setCanLog
 }
