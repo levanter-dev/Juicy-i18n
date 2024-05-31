@@ -492,6 +492,7 @@ export {
     translate,
     addModifier,
     getModifier,
+    applyModifier,
     getModifiersNames,
     setCanLog
 }
