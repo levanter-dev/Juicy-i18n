@@ -32,6 +32,8 @@ const KEY_ITEM_ISO = "iso";
 const KEY_ITEM_TITLE = "title";
 const KEY_ITEM_TRANSLATIONS = "translations";
 
+let can_log : boolean = false;
+
 let localization_reference : LocalizationReferenceCallback;
 
 let modifiers: Record<string, ModifierFunction> = {
@@ -180,7 +182,7 @@ function setStoredConfigObject(callback : LocalizationReferenceCallback) : void 
 }
 
 // return the currently saved localization object (structured at the top of the script)
-function getStoredConfig() : Record<string, any> {
+function getStoredConfigObject() : Record<string, any> {
     return localization_reference();
 }
 
@@ -192,7 +194,7 @@ function getTranslationByKey(search_iso : string | null, search_key : string | n
         return null;
     }
 
-    const stored_config = getStoredConfig();
+    const stored_config = getStoredConfigObject();
 
     // we get the base
     const base = stored_config[KEY_BASE] ?? {};
@@ -472,7 +474,6 @@ function translate(query_input : any) : string | object | null {
 }
 
 
-let can_log : boolean = false;
 function log(id : string, message : string) : void {
     if(can_log) {
         console.log(`LangUtil: ${id}: ${message}`);
@@ -485,8 +486,12 @@ function setCanLog(state: boolean) : void {
 
 export {
     setStoredConfigObject,
+    getStoredConfigObject,
+    get,
+    has,
     translate,
     addModifier,
+    getModifier,
     getModifiersNames,
     setCanLog
 }
